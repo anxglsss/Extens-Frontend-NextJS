@@ -35,9 +35,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} ${mont.variable} antialiased`}
-			>
+			<body className={`${mont.variable}`}>
 				<NextTopLoader />
 				<Toaster position='top-right' />
 				<div className='flex'>

@@ -1,6 +1,6 @@
 import { makeAutoObservable, runInAction } from 'mobx'
 import { getPosts } from '../instances/post.instance'
-import { IPost } from '../types'
+import { IPost } from '../types/token.types'
 
 class PostStore {
 	posts: IPost[] = []

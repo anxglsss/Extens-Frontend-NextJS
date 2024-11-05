@@ -1,7 +1,8 @@
-import { IUser } from '../types'
+import { IToken } from '../types/token.types'
+import { IUser } from '../types/user.types'
 import { axiosInstance } from './axios.instance'
 
-export async function register(user: IUser): Promise<IUser> {
+export async function register(user: IUser): Promise<IToken> {
 	try {
 		return (await axiosInstance.post('/auth/register', user)).data
 	} catch (err) {
@@ -10,7 +11,7 @@ export async function register(user: IUser): Promise<IUser> {
 	}
 }
 
-export async function login(user: IUser): Promise<IUser> {
+export async function login(user: IUser): Promise<IToken> {
 	try {
 		return (await axiosInstance.post('/auth/login', user)).data
 	} catch (err) {
@@ -19,7 +20,7 @@ export async function login(user: IUser): Promise<IUser> {
 	}
 }
 
-export async function logout() {
+export async function logout(): Promise<void> {
 	try {
 		return (await axiosInstance.post('/auth/logout')).data
 	} catch (err) {
@@ -28,7 +29,7 @@ export async function logout() {
 	}
 }
 
-export async function refreshToken() {
+export async function refreshToken(): Promise<IToken> {
 	try {
 		return (await axiosInstance.post('/auth/refresh-token')).data
 	} catch (err) {
